@@ -1,0 +1,41 @@
+{
+  "name": "electron-start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main/index.js",
+  "scripts": {
+    "test": "standard --verbose | snazzy",
+    "fix": "standard --fix",
+    "start": "electron .",
+    "bundle": "browserify -g unassertify -g es2020 -g uglifyify -e src/client.js -o renderer/bundle.js",
+    "watch": "watchify src/client.js -o renderer/bundle.js -dv",
+    "build": "NODE_ENV=production npm run bundle && build --dir"
+  },
+  "keywords": [],
+  "author": "tgfjt",
+  "license": "",
+  "devDependencies": {
+    "browserify": "^14.1.0",
+    "devtron": "^1.4.0",
+    "electron": "^1.6.1",
+    "electron-builder": "^15.1.1",
+    "es2020": "^1.1.9",
+    "snazzy": "^6.0.0",
+    "standard": "^9.0.1",
+    "uglifyify": "^3.0.4",
+    "unassertify": "^2.0.4",
+    "watchify": "^3.9.0"
+  },
+  "dependencies": {
+    "choo": "^4.1.0",
+    "electron-debug": "^1.1.0",
+    "global": "^4.3.1"
+  },
+  "build": {
+    "appId": "com.fujitatakashi.start",
+    "productName": "ElectronStart",
+    "dmg": {
+      "title": "Electron Start"
+    }
+  }
+}
